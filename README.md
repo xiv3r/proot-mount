@@ -9,6 +9,8 @@ apt update && apt install proot -y
 # Mount rootfs using proot
 > - save file in `/bin/proot-mount`
 > - add permission `chmod 700 /bin/proot-mount`
+> - download any linux rootfs.tar.xz file and extract tar -xJf
+> - rename `rootfs-arm64` from the script to the rootfs file directory create by tar after decompressing the tarball.
 ```bash
 #!/data/data/com.termux/files/usr/bin/bash -e
 
