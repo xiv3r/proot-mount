@@ -30,7 +30,8 @@ unset LD_PRELOAD
           -b /etc/hosts
           -b rootfs-arm64/root:/dev/shm \
           -w /root \
-          /usr/bin/env -i \                                                                  HOME=/root \
+          /usr/bin/env -i \
+          HOME=/root \
           TMPDIR=/tmp
           LANG=C.UTF-8 \
           PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin \
