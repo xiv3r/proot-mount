@@ -22,7 +22,7 @@ unset LD_PRELOAD
  cmdline="proot \
           -L \
           -0 \
-          -l \
+          --link2symlink \
           -k $KERNEL \
           -r rootfs-arm64 \
           -b /dev \
