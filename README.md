@@ -14,7 +14,7 @@ apt update && apt install proot -y
 ```bash
 #!/data/data/com.termux/files/usr/bin/bash -e
 
-cd ~/
+cd "$(dirname "$0")"
 KERNEL=$(uname -r)
 unset LD_PRELOAD
 
