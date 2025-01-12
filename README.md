@@ -15,28 +15,27 @@ apt update && apt install proot -y
 #!/data/data/com.termux/files/usr/bin/bash -e
 
 cd ~/
-KERNEL=$(uname -r)
 unset LD_PRELOAD
 
 cmdline="proot \
+    --link2symlink \
     -L \
     -0 \
-    --link2symlink \
-    -k $KERNEL \
-    -r rootfs-arm64 \
+    --ashmem-memfd \
+    -r (replace) \ # replace the guest directory
     -b /dev \
     -b /proc \
     -b /sys \
     -b /sdcard \
     -b /etc/hosts \
-    -b rootfs-arm64/root:/dev/shm \
+    -b (replace)/root:/dev/shm \ # replace the guest root directory
     -w /root \
-    /usr/bin/env -i \
-    HOME=/root \
-    TMPDIR=/tmp \
-    LANG=C.UTF-8 \
-    PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin \
-    TERM=$TERM \
+       /usr/bin/env -i \
+       HOME=/root \
+       PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin \
+       TMP=/tmp \
+       TERM=$TERM \
+       LANG=C.UTF-8 \
     /bin/bash --login"
 
 if [ "$#" -eq 0 ]; then
