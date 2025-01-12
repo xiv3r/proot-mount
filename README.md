@@ -16,24 +16,21 @@ apt update && apt install proot -y
 
 cd ~/
 unset LD_PRELOAD
-
 cmdline="proot \
     --link2symlink \
     -L \
     -0 \
     --ashmem-memfd \
-    -r (replace) \ # replace the guest directory
+    -r (directory) \ # replace to the guest directory
     -b /dev \
     -b /proc \
     -b /sys \
     -b /sdcard \
-    -b /etc/resolv.conf \
-    -b (replace)/root:/dev/shm \ # replace the guest root directory
+    -b (directory)/root:/dev/shm \ # replace to the guest root directory
     -w /root \
        /usr/bin/env -i \
        HOME=/root \
        PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin \
-       TMP=/tmp \
        TERM=$TERM \
        LANG=C.UTF-8 \
        /bin/bash --login"
