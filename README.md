@@ -36,7 +36,7 @@ cmdline="proot \
        TMP=/tmp \
        TERM=$TERM \
        LANG=C.UTF-8 \
-    /bin/bash --login"
+       /bin/bash --login"
 
 if [ "$#" -eq 0 ]; then
     exec $cmdline
