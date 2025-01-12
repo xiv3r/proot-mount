@@ -27,7 +27,7 @@ cmdline="proot \
     -b /proc \
     -b /sys \
     -b /sdcard \
-    -b /etc/hosts \
+    -b /etc/resolv.conf \
     -b (replace)/root:/dev/shm \ # replace the guest root directory
     -w /root \
        /usr/bin/env -i \
